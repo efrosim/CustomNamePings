@@ -1,0 +1,191 @@
+/*
+ * Custom Name Pings Plugin Styles
+ */
+
+/* Custom Name Mention Pill in Text */
+.vc-custom-name-mention {
+    background-color: var(--status-danger-background, rgba(237, 66, 69, 0.2)) !important;
+    color: var(--text-danger, #f23f43) !important;
+    font-weight: 600 !important;
+    padding: 0 4px;
+    border-radius: 3px;
+    display: inline-block;
+    line-height: 1.35;
+    transition: background-color 0.15s ease;
+}
+
+.vc-custom-name-mention:hover {
+    background-color: rgba(237, 66, 69, 0.35) !important;
+}
+
+/* Entire message row highlight when it contains a custom name mention */
+[class*="messageListItem_"]:has(.vc-custom-name-mention) [class*="message_"],
+li:has(.vc-custom-name-mention) > div[class*="message_"],
+[class*="message_"]:has(.vc-custom-name-mention) {
+    background-color: var(--background-mentioned, rgba(237, 66, 69, 0.08)) !important;
+    position: relative;
+}
+
+[class*="messageListItem_"]:has(.vc-custom-name-mention) [class*="message_"]::before,
+li:has(.vc-custom-name-mention) > div[class*="message_"]::before,
+[class*="message_"]:has(.vc-custom-name-mention)::before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--status-danger, #ed4245);
+    pointer-events: none;
+}
+
+[class*="messageListItem_"]:has(.vc-custom-name-mention) [class*="message_"]:hover,
+li:has(.vc-custom-name-mention) > div[class*="message_"]:hover,
+[class*="message_"]:has(.vc-custom-name-mention):hover {
+    background-color: var(--background-mentioned-hover, rgba(237, 66, 69, 0.12)) !important;
+}
+
+/* Settings Guild Selector */
+.vc-cnp-guilds-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+.vc-cnp-guilds-header {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.vc-cnp-guilds-list {
+    max-height: 280px;
+    overflow-y: auto;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+    border-radius: 8px;
+    background-color: var(--background-secondary, rgba(0, 0, 0, 0.2));
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.vc-cnp-guild-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background-color 0.1s ease;
+}
+
+.vc-cnp-guild-item:hover {
+    background-color: var(--background-modifier-hover, rgba(255, 255, 255, 0.05));
+}
+
+.vc-cnp-guild-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.vc-cnp-guild-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background-color: var(--background-secondary-alt, #2b2d31);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted, #949ba4);
+}
+
+.vc-cnp-guild-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-normal, #dbdee1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Blacklist Channels & Categories Styles */
+.vc-cnp-blacklist-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 14px;
+    margin-bottom: 12px;
+    gap: 16px;
+}
+
+.vc-cnp-blacklist-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.vc-cnp-blacklist-input-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.vc-cnp-blacklist-list {
+    max-height: 220px;
+    overflow-y: auto;
+    border: 1px solid var(--border-subtle, rgba(255, 255, 255, 0.08));
+    border-radius: 8px;
+    background-color: var(--background-secondary, rgba(0, 0, 0, 0.2));
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-top: 4px;
+}
+
+.vc-cnp-blacklist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background-color: var(--background-secondary-alt, rgba(255, 255, 255, 0.03));
+    transition: background-color 0.1s ease;
+}
+
+.vc-cnp-blacklist-item:hover {
+    background-color: var(--background-modifier-hover, rgba(255, 255, 255, 0.06));
+}
+
+.vc-cnp-blacklist-item-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 2px;
+}
+
+.vc-cnp-blacklist-item-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-normal, #dbdee1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vc-cnp-blacklist-item-sub {
+    font-size: 11px;
+    color: var(--text-muted, #949ba4);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
